@@ -1,13 +1,21 @@
+/* eslint-disable no-undef */
 import React, { useEffect } from "react";
 
 const App = () => {
   useEffect(() => {
     const initMap = () => {
-      // eslint-disable-next-line no-undef
       const map = new naver.maps.Map("map", {
-        // eslint-disable-next-line no-undef
         center: new naver.maps.LatLng(37.511337, 127.012084),
         zoom: 13,
+      });
+      const marker = new naver.maps.Marker({
+        position: new naver.maps.LatLng(37.4867995957995, 126.982211871752),
+        map: map,
+        icon: {
+          content: `
+              <div style="width: 12px; height: 12px; background: red;" />
+            `,
+        },
       });
     };
 

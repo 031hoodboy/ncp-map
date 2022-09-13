@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
 
-function App() {
+const App = () => {
+  useEffect(() => {
+    const initMap = () => {
+      // eslint-disable-next-line no-undef
+      const map = new naver.maps.Map("map", {
+        // eslint-disable-next-line no-undef
+        center: new naver.maps.LatLng(37.511337, 127.012084),
+        zoom: 13,
+      });
+    };
+
+    initMap();
+  }, []);
+
+  //지도 사이즈 관련 스타일
+  const mapStyle = {
+    width: "80%",
+    height: "600px",
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <h1>지도</h1>
+      <div id="map" style={mapStyle}></div>
+    </React.Fragment>
   );
-}
+};
 
 export default App;
